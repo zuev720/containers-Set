@@ -7,10 +7,9 @@ export default class Team {
 
   add(person) {
     for (const character of this.members) {
-      if (character.name.toLowerCase() === person.name.toLowerCase() &&
-                                      character.type === person.type &&
-                                      character.level === person.level)
-      {
+      if (character.name.toLowerCase() === person.name.toLowerCase()
+                                      && character.type === person.type
+                                      && character.level === person.level) {
         throw new Error('Этот персонаж уже находится в вашей команде!');
       }
     }
@@ -25,10 +24,9 @@ export default class Team {
       result.forEach((character) => {
         arr.push(character.name);
       });
-      if (!(arr.includes(person.name)) &&
-          !(arr.includes(person.type)) &&
-          !(arr.includes(person.level)))
-      {
+      if (!(arr.includes(person.name))
+          && !(arr.includes(person.type))
+          && !(arr.includes(person.level))) {
         result.add(person);
       }
       return result;
