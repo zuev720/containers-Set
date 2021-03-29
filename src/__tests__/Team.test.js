@@ -5,6 +5,9 @@ it('Метод toArray() должен возвращать массив объе
   const team = new Team();
   team.add(new Character('dude'));
   team.add(new Character('bro'));
+  const coolMan = new Character('bro');
+  coolMan.level = 2;
+  team.add(coolMan);
   expect(team.toArray()).toEqual([
     {
       _name: 'dude',
@@ -18,6 +21,14 @@ it('Метод toArray() должен возвращать массив объе
       _name: 'bro',
       health: 100,
       level: 1,
+      attack: 0,
+      defence: 0,
+      _type: 'Character',
+    },
+    {
+      _name: 'bro',
+      health: 100,
+      level: 2,
       attack: 0,
       defence: 0,
       _type: 'Character',

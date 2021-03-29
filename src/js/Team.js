@@ -7,7 +7,10 @@ export default class Team {
 
   add(person) {
     for (const character of this.members) {
-      if (character.name.toLowerCase() === person.name.toLowerCase()) {
+      if (character.name.toLowerCase() === person.name.toLowerCase() &&
+                                      character.type === person.type &&
+                                      character.level === person.level)
+      {
         throw new Error('Этот персонаж уже находится в вашей команде!');
       }
     }
@@ -20,9 +23,12 @@ export default class Team {
     const arr = [];
     persons.reduce((result, person) => {
       result.forEach((character) => {
-        arr.push(character.name.toLowerCase());
+        arr.push(character.name);
       });
-      if (!(arr.includes(person.name.toLowerCase()))) {
+      if (!(arr.includes(person.name)) &&
+          !(arr.includes(person.type)) &&
+          !(arr.includes(person.level)))
+      {
         result.add(person);
       }
       return result;
@@ -33,16 +39,5 @@ export default class Team {
 
   toArray() {
     return [...this.members];
-
-    // альтернативное решение
-    // let arr = [];
-    // this.members.forEach((person) => {
-    //   let obj = {};
-    //   for (let [key, value] of Object.entries(person)) {
-    //     obj[key] = value;
-    //   }
-    //   arr.push(obj);
-    // })
-    // return arr;
   }
 }

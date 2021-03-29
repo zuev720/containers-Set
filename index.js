@@ -5,5 +5,13 @@ const team = new Team();
 team.members.clear();
 team.add(new Character('dude'));
 team.add(new Character('bro'));
-team.addAll(new Character('dude'), new Character('bro'), new Character('barney'), new Character('goodMan'), new Character('dude'), new Character('bro'));
-console.log(team.toArray());
+const coolMan = new Character('bro');
+coolMan.level = 2;
+team.add(coolMan);
+team.addAll(new Character('dude'),
+  new Character('bro'),
+  new Character('barney'),
+  new Character('goodMan'),
+  new Character('dude'),
+  new Character('bro'));
+console.log(team.members);
